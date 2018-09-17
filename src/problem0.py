@@ -8,8 +8,8 @@ These problems illustrate concepts that previous problems have not emphasized:
   -- animation (Problem 0c)
 
 Authors: David Mutchler, Vibha Alangar, Valerie Galluzzi, Mark Hays,
-         Amanda Stouder, their colleagues and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         Amanda Stouder, their colleagues and Michelle.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 import rosegraphics as rg
 import testing_helper
@@ -24,7 +24,7 @@ def main():
 
 
 ########################################################################
-# TODO: 2.  READ the green doc-string for the:
+# DONE: 2.  READ the green doc-string for the:
 #   - is_prime
 #   - sum_of_digits
 # functions defined below.  You do NOT need to understand their
@@ -96,16 +96,13 @@ def run_test_problem0a():
     print('Testing the   problem0a   function:')
     print('--------------------------------------------------')
 
-    format_string = '    problem0a( {} )'
-    test_results = [0, 0]  # Number of tests passed, failed.
-
     # Test 1:
     expected = False
-    print_expected_result_of_test([83135], expected, test_results,
-                                  format_string)
-    actual = problem0a(83135)  # Run the code to test
-    print_actual_result_of_test(expected, actual, test_results)
-    if actual == 'False':
+    answer = problem0a(83135)
+    print()
+    print('Test 1 expected:', expected)
+    print('       actual:  ', answer)
+    if answer == 'False':
         print('Your function returned the STRING "False",')
         print('which is WRONG.  It should have returned')
         print('the built-in constant False.')
@@ -113,10 +110,11 @@ def run_test_problem0a():
 
     # Test 2:
     expected = True
-    print_expected_result_of_test([306], expected, test_results, format_string)
-    actual = problem0a(306)
-    print_actual_result_of_test(expected, actual, test_results)
-    if actual == 'True':
+    answer = problem0a(306)
+    print()
+    print('Test 2 expected:', expected)
+    print('       actual:  ', answer)
+    if answer == 'True':
         print('Your function returned the STRING "True",')
         print('which is WRONG.  It should have returned')
         print('the built-in constant True.')
@@ -124,23 +122,25 @@ def run_test_problem0a():
 
     # Test 3:
     expected = False
-    print_expected_result_of_test([246], expected, test_results, format_string)
-    actual = problem0a(246)
-    print_actual_result_of_test(expected, actual, test_results)
+    answer = problem0a(246)
+    print()
+    print('Test 3 expected:', expected)
+    print('       actual:  ', answer)
 
     # Test 4:
     expected = False
-    print_expected_result_of_test([830931], expected, test_results,
-                                  format_string)
-    actual = problem0a(830931)
-    print_actual_result_of_test(expected, actual, test_results)
+    answer = problem0a(830931)
+    print()
+    print('Test 4 expected:', expected)
+    print('       actual:  ', answer)
 
     # Test 5:
     expected = True
-    print_expected_result_of_test([730931], expected, test_results,
-                                  format_string)
-    actual = problem0a(730931)
-    print_actual_result_of_test(expected, actual, test_results)
+    answer = problem0a(730931)
+    print()
+    print('Test 5 expected:', expected)
+    print('       actual:  ', answer)
+
 
 
 def problem0a(n):
@@ -159,7 +159,7 @@ def problem0a(n):
            since (2 + 4 + 6) is 12, which is NOT odd.
     """
     # ------------------------------------------------------------------
-    # TODO: 3. Implement and test this function.
+    # DONE: 3. Implement and test this function.
     #          Tests have been written for you (above).
     #
     ####################################################################
@@ -176,6 +176,11 @@ def problem0a(n):
     #        Simply try a few examples to convince yourself of this.
     #        ASK FOR HELP if you do not understand this hint.
     # ------------------------------------------------------------------
+    if sum_of_digits(n) % 2 == 0:
+        return False
+    else:
+        return True
+
 
 
 def run_test_problem0b():
@@ -185,32 +190,33 @@ def run_test_problem0b():
     print('Testing the   problem0b   function:')
     print('--------------------------------------------------')
 
-    format_string = '    problem0b( {} )'
-    test_results = [0, 0]  # Number of tests passed, failed.
-
     # Test 1:
     expected = 6
-    print_expected_result_of_test([13], expected, test_results, format_string)
     actual = problem0b(13)
-    print_actual_result_of_test(expected, actual, test_results)
+    print()
+    print('Test 3 expected:', expected)
+    print('       actual:  ', actual)
 
     # Test 2:
     expected = 1
-    print_expected_result_of_test([2], expected, test_results, format_string)
     actual = problem0b(2)
-    print_actual_result_of_test(expected, actual, test_results)
+    print()
+    print('Test 3 expected:', expected)
+    print('       actual:  ', actual)
 
     # Test 3:
     expected = 46
-    print_expected_result_of_test([200], expected, test_results, format_string)
     actual = problem0b(200)
-    print_actual_result_of_test(expected, actual, test_results)
+    print()
+    print('Test 3 expected:', expected)
+    print('       actual:  ', actual)
 
     # Test 4:
     expected = 168
-    print_expected_result_of_test([997], expected, test_results, format_string)
     actual = problem0b(997)
-    print_actual_result_of_test(expected, actual, test_results)
+    print()
+    print('Test 3 expected:', expected)
+    print('       actual:  ', actual)
 
 
 def problem0b(n):
@@ -230,7 +236,7 @@ def problem0b(n):
            since there are 46 primes between 2 and 200.
      """
     # ------------------------------------------------------------------
-    # TODO: 4. Implement and test this function.
+    # DONE: 4. Implement and test this function.
     #          Tests have been written for you (above).
     #
     ####################################################################
@@ -239,7 +245,11 @@ def problem0b(n):
     #    **  use (call) the   is_prime   function that is DEFINED ABOVE.
     ####################################################################
     # ------------------------------------------------------------------
-
+    count = 0
+    for k in range(n - 2 + 1):
+        if is_prime(k + 2) == True:
+            count = count + 1
+    return count
 
 def run_test_problem0c():
     """ Tests the   problem0c  function. """
@@ -298,7 +308,7 @@ def problem0c(circle, n, window):
       :type window: rg.RoseWindow
     """
     # ------------------------------------------------------------------
-    # TODO: 5. Implement and test this function.
+    # DONE: 5. Implement and test this function.
     #          Tests have been written for you (above).
     #
     ####################################################################
@@ -306,6 +316,14 @@ def problem0c(circle, n, window):
     #   renders with a half-second pause after rendering.
     ####################################################################
     # ------------------------------------------------------------------
+    circle.attach_to(window)
+    window.render(0.5)
+
+    for k in range(n):
+        circle1 = rg.Circle(rg.Point(circle.center.x + circle.radius * 2 * (k+1), circle.center.y), circle.radius)
+        circle1.attach_to(window)
+        window.render(0.5)
+
 
 
 ###############################################################################
